@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        #quiz-container {
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            width: 400px;
+            max-width: 100%;
+            margin: auto;
+        }
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #question {
+            font-size: 18px;
+            margin: 20px;
+        }
+
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin: 5px;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+    <title>Quiz App</title>
+</head>
+<body>
+    <div id="quiz-container">
+        <header>
+            <h1>Quiz App</h1>
+        </header>
+        <div id="question">Loading question...</div>
+        <div class="options-container" id="options-container"></div>
+        <button id="next-button" onclick="checkAnswer()">Next</button>
+    </div>
+
+    <script>
+        var jsonData = [
+            {
+                "q": "What is the capital of France?",
+                "opt1": "India",
+                "opt2": "Nepal",
+                "opt3": "Paris",
+                "answer": "Paris"
+            },
+            {
+                "q": "When was Netflix founded?",
+                "opt1": "1997",
+                "opt2": "1990",
+                "opt3": "1999",
+                "answer": "1997"
+            },
+            {
+                "q": "How many rings in the Olympic flag?",
+                "opt1": "2",
+                "opt2": "4",
+                "opt3": "5",
+                "answer": "5"
+            },
+            {
+                "q": "What does He stand for on the periodic table?",
+                "opt1": "Oxygen",
+                "opt2": "Hydrogen",
+                "opt3": "Helium",
+                "answer": "Helium"
+            },
+            {
+                "q": "Which company developed the first mobile phone?",
+                "opt1": "iPhone",
+                "opt2": "Samsung",
+                "opt3": "Motorola",
+                "answer": "Motorola"
+            }
+        ];
+
+        var i = 0;
+        var CorrectCount = 0;
+        generates(0);
+
+        function generates(index) {
+            document.getElementById("question").innerHTML = jsonData[index].q;
+
+            var optionsContainer = document.getElementById("options-container");
+            optionsContainer.innerHTML = '';
+
+            for (var optIndex = 1; optIndex <= 3; optIndex++) {
+                var option = document.createElement('input');
+                option.type = 'radio';
+                option.name = 'options';
+                option.id = 'opt' + optIndex;
+                option.value = jsonData[index]['opt' + optIndex];
+                option.innerHTML = jsonData[index]['opt' + optIndex];
+
+                var label = document.createElement('label');
+                label.innerHTML = jsonData[index]['opt' + optIndex];
+                label.appendChild(option);
+
+                optionsContainer.appendChild(label);
+            }
+        }
+
+        function checkAnswer() {
+            var selectedOption;
+            var options = document.getElementsByName('options');
+
+            for (var opt of options) {
+                if (opt.checked) {
+                    selectedOption = opt.value;
+                    break;
+                }
+            }
+
+            if (selectedOption === jsonData[i].answer) {
+                CorrectCount++;
+            }
+
+            i++;
+
+            if (i < jsonData.length) {
+                generates(i);
+            } else {
+                document.write("Your Score: " + CorrectCount + " *****");
+            }
+        }
+    </script>
+</body>
+</html>

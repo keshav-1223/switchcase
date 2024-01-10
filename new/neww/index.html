@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: rgb(5, 5, 5);
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #0626f5bb;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(245, 150, 150, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ef08cc;
+            border-radius: 4px;
+        }
+
+        input[type="text"]:hover,
+        input[type="number"]:hover {
+            border: 1px solid #131ef9a2;
+        }
+
+        input[type="button"] {
+            background-color: #0d18eba2;
+            color: #fff;
+            cursor: pointer;
+            width: 25%
+        }
+
+        input[type="button"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Registration form</h1>
+    <form class="form">
+        <label for="fname">First Name:&#128100;</label>
+        <input type="text" value="" id="fname" placeholder="Enter your FirstName"><br><br>
+        <label for="lname">Last Name:&#128100;</label>
+        <input type="text" value="" id="lname" placeholder="Enter your lastname"><br><br>
+        <label for="phone">Phoneno:&#128222;</label>
+        <input type="number" id="phone" placeholder="+977"><br><br>
+        <label for="ads">Address:🏠 </label>
+        <input type="text" value="" id="ads" placeholder="Enter your address"><br><br>
+        <label for="email">Email:&#9993;</label>
+        <input type="text" value="" id="email" placeholder="abc@gmail.com"><br><br>
+        <input type="button" value="Submit" id="btn">
+
+    </form>
+    <script>
+        document.getElementById("FirstName").addEventListener("blur", showFirstNameError);
+        document.getElementById("LastName").addEventListener("blur", showLastNameError);
+        document.getElementById("PhoneNo").addEventListener("blur", showPhoneNoError);
+        document.getElementById("Address").addEventListener("blur", showAddressError);
+        document.getElementById("Email").addEventListener("blur", showEmailError);
+
+        function showFirstNameError() {
+            var firstName = document.getElementById("FirstName").value;
+            if (firstName === "") {
+                document.getElementById("FirstName").placeholder = "The Name Section must not be empty!!!";
+            }
+        }
+
+        function showLastNameError() {
+            var lastName = document.getElementById("LastName").value;
+            if (lastName === "") {
+                document.getElementById("LastName").placeholder = "Last name is required!!!";
+            }
+        }
+
+        function showPhoneNoError() {
+            var phoneNo = document.getElementById("PhoneNo").value;
+            if (phoneNo === "") {
+                document.getElementById("PhoneNo").placeholder = "Please enter phone no!!!";
+            } else if (!/^\d{8,}$/.test(phoneNo)) {
+                document.getElementById("PhoneNo").value = "";
+                document.getElementById("PhoneNo").placeholder = "Please enter a valid phone number with at least 8 digits!";
+            }
+        }
+        function showAddressError() {
+            var address = document.getElementById("Address").value;
+            if (address === "") {
+                document.getElementById("Address").placeholder = "The address section is empty!!!";
+            }
+        }
+
+        function showEmailError() {
+            var email = document.getElementById("Email").value;
+            if (email === "" || !/^[a-zA-Z0-9._-]+@gmail\.com$/.test(email)) {
+                document.getElementById("Email").value = "";
+                document.getElementById("Email").placeholder = "Please enter a valid Gmail address!";
+            }
+        }
+    </script>
+</body>
+
+</html>

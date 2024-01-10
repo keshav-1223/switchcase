@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="week" onchange="selectedDay()">
+        <option value="Sunday">Sunday</option>
+        <option value="Monday">Monday</option>
+        <option value="Tuesday">Tuesday</option>
+        <option value="Wednesday">Wednesday</option>
+        <option value="Thursday">Thursday</option>
+        <option value="Friday">Friday</option>
+        <option value="Saturday">Saturday</option>
+    </select>
+    <script>
+        function selectedDay() {
+            var select = document.getElementById("week");
+            var selectedValue = select.value;
+
+            switch (selectedValue) {
+                case "Sunday":
+                    document.write("You selected Sunday");
+                    break;
+
+                case "Monday":
+                document.write("You selected Monday");
+                    break;
+
+                case "Tuesday":
+                document.write("You selected Tuesday");
+                    break;
+
+                case "Wednesday":
+                document.write("You selected Wednesday");
+                    break;
+
+                case "Thursday":
+                document.write("You selected Thursday");
+                    break;
+
+                case "Friday":
+                document.write("You selected Friday");
+                    break;
+
+                case "Saturday":
+                document.write("You selected Saturday");
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

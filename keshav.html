@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dangerous</title>
+</head>
+<body>
+    <!-- Adiv to append the button to-->
+    <div id="container"></div>
+    <script>
+        // create a button element
+        var button= document.createElement("button");
+        button.innerHTML="Click me!"
+        //add a click eventlistener to the button
+        button.addEventListener("click",function(){
+            alert("Mind blown!You clicked button");
+        });
+        // Append the button to the container div
+        document.getElementById("container").append(button);
+    </script>
+</body>
+</html>

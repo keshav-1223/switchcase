@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label> Name:</label>
+        <input id="Name" type="text"  />
+        <br />
+        <br />
+
+        <button type="button" onclick="simple()">ClickMe</button>
+    </form>
+    <script>
+        function simple(){
+            
+        
+           var a=document.getElementById("Name").value.trim();
+
+            if(a===""){
+                
+                document.getElementById("Name").style.border="2px solid red";
+                document.getElementById("Name").placeholder="enter a value";
+               
+            }else{}
+
+
+        }
+    </script>
+
+</body>
+</html>

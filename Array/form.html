@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      
+</head>
+<body>
+    <style>
+        #form {
+            max-width: 400px ;
+            margin: 20 px auto ;
+        }
+
+        button {
+            padding: 10px ;
+        }
+    </style>
+    <form id="form" >
+        <label> Name:</label>
+        <input id="Name" type="text" required />
+        <i class="fas fa-envelope"></i> 
+        <br />
+        <br />
+        <label>User Name:</label>
+        <input id="UserName" type="text" required />
+        <br />
+        <br />
+        <label>Email:</label>
+        <input id="Email" type="text" required />
+        <br />
+        <br />
+        <label>Password:</label>
+        <input id="Password" type="password" required />
+        <br />
+        <br />
+        <label>Confirm Password:</label>
+        <input id="ConfirmPassword" type="password"required />
+        <br />
+        <br />
+        
+        <button type="button" onclick="Form()" class="btn btn-success">ClickMe</button>
+        
+    </form>
+    <script>
+        function Form(){
+            var Name=document.getElementById("Name").value;
+            var UserName=document.getElementById("UserName").value;
+            var Email=document.getElementById("Email").value;
+            var Password=document.getElementById("Password").value;
+            var ConfirmPassword=document.getElementById("ConfirmPassword").value;
+
+
+            if(Name===""){
+                
+                document.getElementById("Name").style.border="2px solid red";
+                document.getElementById("Name").placeholder="Please Enter Your Name";
+               
+            }if(UserName===""){
+                
+                document.getElementById("UserName").style.border="2px solid red";
+                document.getElementById("UserName").placeholder="Please Enter Your UserName";
+               
+            }if(Email===""){
+                
+                document.getElementById("Email").style.border="2px solid red";
+                document.getElementById("Email").placeholder="Please Enter Your Email";
+
+            }if(Password===""){
+                
+                document.getElementById("Password").style.border="2px solid red";
+                document.getElementById("Password").placeholder="Please Enter Your Password";
+                
+            }if(ConfirmPassword===""){
+                
+                document.getElementById("ConfirmPassword").style.border="2px solid red";
+                document.getElementById("ConfirmPassword").placeholder="enter a value";
+                
+            }
+               
+
+
+            if (Password !== ConfirmPassword) {
+                alert("Passwords do not match");
+                
+            }
+            var email = document.getElementById('emailInput').value;
+            var emailRegex = /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/;
+
+           if (!emailRegex.test(email)) {
+             alert('Email address not valid');
+    
+}
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="Name">Name:</label>
+    <input id="Name" type="text" />
+
+    <label for="Address">Address:</label>
+    <input id="Address" type="text" />
+    
+    <label for="Age">Age:</label>
+    <input id="Age" type="number" />
+
+    <label for="Rollno">Rollno:</label>
+    <input id="Rollno" type="number" />
+
+    <button onclick="createTable()">Click</button>
+
+    <div id="keshab"></div>
+
+    <script>
+        function person(name, address, age, rollno) {
+            this.name = name;
+            this.address = address;
+            this.age = age;
+            this.rollno = rollno;
+        }
+
+        function createTable() {
+            const name = document.getElementById("Name").value;
+            const address = document.getElementById("Address").value;
+            const age = document.getElementById("Age").value;
+            const rollno = document.getElementById("Rollno").value;
+
+            const a = new person(name, address, age, rollno);
+
+            var table = document.createElement("table");
+            var tbody = document.createElement("tbody");
+            var row = tbody.insertRow();
+            for (var prop in a) {
+                
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+
+                cell1.innerHTML = prop;
+                cell2.innerHTML = a[prop];
+            }
+
+            table.appendChild(tbody);
+
+            
+            document.getElementById("keshab").innerHTML = "";
+            document.getElementById("keshab").appendChild(table);
+        }
+    </script>
+</body>
+</html>

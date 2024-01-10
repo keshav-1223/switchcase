@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Difference Calculator</title>
+</head>
+<body>
+    <input type="date" id="first">
+    <input type="date" id="second">
+    <button onclick="calculate()">Difference</button>
+    <p id="output"></p>
+    <script>
+        function calculate() {
+            var d1 = document.getElementById('first').value;
+            var d2 = document.getElementById('second').value;
+            const dateOne = new Date(d1);
+            const dateTwo = new Date(d2);
+            const time = Math.abs(dateTwo - dateOne);
+            const days = Math.ceil(time / (1000 * 60 * 60 * 24));
+
+            document.getElementById('output').innerHTML = days;
+        }
+    </script>
+</body>
+</html>

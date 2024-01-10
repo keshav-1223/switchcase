@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Comparison Example</title>
+</head>
+<body>
+
+    <script>
+        var Array = [, 1, 2, 3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,30,50,67,69,70,76,79,80,89,97,99,100];
+
+        var forLoopArray = [];
+        for (var i = 0; i <= 100; i++) {
+            forLoopArray.push(i);
+        }
+
+        var missingNumbers = [];
+        for (var j = 0; j <= 100; j++) {
+            if (Array.indexOf(forLoopArray[j]) === -1) {
+                missingNumbers.push(forLoopArray[j]);
+            }
+        }
+
+        document.write("Missing numbers:", missingNumbers +"\n");
+    </script>
+
+</body>
+</html>

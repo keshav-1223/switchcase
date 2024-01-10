@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+        body {
+            padding: 50px;
+        }
+        label {
+            width: 125px;
+            display: inline-block; 
+        }
+        #form {
+            border: 3px solid black;
+            padding: 20px;
+            background-color: rgb(206, 228, 162);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        h2 {
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form id="form">
+        <h2>Registration Form</h2>
+        <label for="FirstName">First Name:</label><i class="fa fa-user"></i>
+        <input type="text" id="FirstName" /><br /><br />
+        
+        <label for="LastName">Last Name</label><i class="fa fa-user"></i>
+        <input type="text" id="LastName" /><br /><br />
+
+        <label for="UserName">User Name</label><i class="fa fa-user"></i>
+        <input type="text" id="username" /><br /><br />
+
+        <label for="Password">Password</label><i class="fa fa-user"></i>
+        <input type="password" id="password" /><br /><br />
+
+        <label for="ConfirmPassword">Confirm Password</label><i class="fa fa-user"></i>
+        <input type="password" id="Confirmpassword" /><br /><br />
+
+        <label for="Email">E-mail</label><i class="fa fa-envelope"></i>
+        <input type="text" id="Email"><br /><br />
+
+        <label for="Telephone">Telephone</label><i class="fa fa-phone"></i>
+        <input type="number" id="telephone" /> <br /> <br />
+
+        <button type="button" class="btn btn-success" onclick="validateForm()">Submit</button>
+    </form>
+    <script>
+        function validateForm(){
+            var FirstName = document.getElementById("FirstName").value;
+            var LastName = document.getElementById("LastName").value;
+            var UserName = document.getElementById("username").value;
+            var Password = document.getElementById("password").value;
+            var ConfirmPassword = document.getElementById("Confirmpassword").value;
+            var Email = document.getElementById("Email").value;
+            var Telephone = document.getElementById("telephone").value; 
+
+            if (FirstName === "") {
+                document.getElementById("FirstName").placeholder = "Please Enter Your First Name";
+            }
+            if (LastName === "") {
+                document.getElementById("LastName").placeholder = "Please Enter Your Last Name";
+            }
+            if (UserName === "") {
+                document.getElementById("username").placeholder = "Please Enter Your UserName";
+            }
+            if (Email === "") {
+                document.getElementById("Email").placeholder = "Please Enter Your Email";
+            }
+            if (Password === "") {
+                document.getElementById("password").placeholder = "Please Enter Your Password";
+            }
+            if (ConfirmPassword === "") {
+                document.getElementById("Confirmpassword").placeholder = "Please Confirm Your Password";
+            }
+            if (Telephone === "") {
+                document.getElementById("telephone").placeholder = "Please enter your telephone";
+            }
+
+            if (Password !== ConfirmPassword) {
+                alert("Passwords do not match");
+                return;
+            }
+        }
+    </script>
+</body>
+</html>

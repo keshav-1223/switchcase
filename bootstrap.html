@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #quiz-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #options-container {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+    <title>Simple Quiz</title>
+</head>
+<body>
+    <div id="quiz-container">
+        <h1 id="question"></h1>
+        <div id="options-container"></div>
+        <button id="next-button" onclick="nextQuestion()">Next</button>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: 'What is the capital of France?',
+                options: ['Berlin', 'Madrid', 'Paris', 'Rome'],
+                correctAnswer: 'Paris'
+            },
+            {
+                question: 'Which planet is known as the Red Planet?',
+                options: ['Earth', 'Mars', 'Jupiter', 'Venus'],
+                correctAnswer: 'Mars'
+            },
+            {
+                question: 'What is the largest mammal on Earth?',
+                options: ['Elephant', 'Blue Whale', 'Giraffe', 'Hippopotamus'],
+                correctAnswer: 'Blue Whale'
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function startQuiz() {
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const currentQuestion = questions[currentQuestionIndex];
+            const questionElement = document.getElementById('question');
+            const optionsContainer = document.getElementById('options-container');
+
+            questionElement.textContent = currentQuestion.question;
+            optionsContainer.innerHTML = '';
+
+            currentQuestion.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.textContent = option;
+                button.addEventListener('click', () => checkAnswer(index));
+                optionsContainer.appendChild(button);
+            });
+        }
+
+        function checkAnswer(optionIndex) {
+            const currentQuestion = questions[currentQuestionIndex];
+
+            if (currentQuestion.options[optionIndex] === currentQuestion.correctAnswer) {
+                score++;
+            }
+
+            nextQuestion();
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+
+            if (currentQuestionIndex < questions.length) {
+                showQuestion();
+            } else {
+                endQuiz();
+            }
+        }
+
+        function endQuiz() {
+            alert(`Quiz completed!\nYour score: ${score}/${questions.length}`);
+        }
+        startQuiz();
+    </script>
+</body>
+</html>
